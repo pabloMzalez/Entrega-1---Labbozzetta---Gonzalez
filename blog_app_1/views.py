@@ -12,4 +12,17 @@ def inicio(request):
 
 def sobre_nosotros(request):
     return render(request, "sobre_nosotros.html")
+
+
+
+def crear_blog(request):
+    #acceso al formulario creado con django 
     
+  
+    
+    return render(request, "blog.html")
+    
+
+    
+def listado_blog(request):
+    ...

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>LG - Labbozzeta Gonzalez Inversiones </title>
+        {% block titulo %} <title>LG - Labbozzeta Gonzalez Inversiones </title> {% endblock titulo %}
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href={% static 'blog_app_1/css/styles.css' %} rel="stylesheet" />
@@ -20,14 +20,16 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href= {% url 'sobre_nosotros' %} >Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href= "#services">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">BLOG</a></li>
+                        <li class="nav-item"><a class="nav-link" href= {% url 'crear_blog' %} >BLOG</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Header-->
+
+        {% block presentacion %}
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
                 <h1 class="fw-bolder">Bienvenido a LG Inversiones</h1>
@@ -35,7 +37,9 @@
                 <a class="btn btn-lg btn-light" href="#contact">Invertí con profesionales</a>
             </div>
         </header>
+        {% endblock presentacion %}
         <!-- About section-->
+
         {% block seccion_inicio %}
         <section id="about">
             <div class="container px-4">
@@ -55,6 +59,10 @@
         </section>
         {% endblock seccion_inicio %}
         <!-- Services section-->
+        {% block formulario %}{% endblock formulario %}
+
+
+        {% block servicios %} 
         <section class="bg-light" id="services">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
@@ -65,7 +73,9 @@
                 </div>
             </div>
         </section>
+        {% endblock servicios %}
         <!-- Contact section-->
+        
         <section id="contact">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
