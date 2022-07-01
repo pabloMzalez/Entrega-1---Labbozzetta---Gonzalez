@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block titulo %} <title> BLOG - LG Inversiones</title> {% endblock titulo %}
+
+{% block presentacion %}
+        <header class="bg-primary bg-gradient text-white">
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder">Bienvenido a nuestro BLOG</h1>
+                <p class="lead">Experiencias en los mercados</p>
+                <a class="btn btn-lg btn-light" href="#contact">Invertí con profesionales</a>
+            </div>
+        </header>
+{% endblock presentacion %}
+
+{% block seccion_inicio %}
+        <section id="about">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Encuentros con el mercado</h2>
+                        <p class="lead"> Este es un gran lugar para contar sobre tus experiencias</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock seccion_inicio %}
+
+
+{# aca iria la funcion para hacer la busqueda #}
+{% block formulario_de_busqueda %}
+
+<section id="about">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <p>
+                    <form action= {% url 'listado_blog' %} method="GET">
+                        {{form}}
+                        <button>Buscar entradas</button>
+                    </form>
+                </p>
+                <p>
+                    {% if listado_blog %}
+                    <ul>
+                        {% for entrada in listado_blog %}
+                        <li>{{entrada}}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    No se encuentra la entrada, prueba otra busqueda
+                    {% endif %}
+                     
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock formulario_de_busqueda %}
+
+
+{% block servicios %} {% endblock servicios %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <p>
+    <form action= {% url 'listado_blog' %} method="GET">
+        {{form}}
+        <button>Buscar entradas</button>
+    </form>
+</p>
+
+<p>
+    {% if listado_blog %}
+    <ul>
+        {% for entrada in listado_blog %}
+        <li>{{entrada}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    No se encuentra la entrada, prueba otra busqueda
+    {% endif %}
+     
+</p> {% endcomment %}

@@ -4,7 +4,7 @@ from django.template import loader
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from blog_app_1.forms import FormBlog
+from blog_app_1.forms import BusquedaBlog, FormBlog
 from blog_app_1.models import Blog
 
 # Create your views here.
@@ -37,7 +37,7 @@ def crear_blog(request):
             entrada.save()
            
             
-            #return redirect("listado_blog")
+            return redirect("listado_blog")
         else:
             return render(request, "blog.html", {"form": form}) 
         
@@ -47,4 +47,13 @@ def crear_blog(request):
 
     
 def listado_blog(request):
-    ...
+    titulo_de_busqueda = request.GET.get("titulo")
+    
+    if titulo_de_busqueda:
+        listado_blog = Blog.objects.filter(titulo__icontains = titulo_de_busqueda)
+    else:
+        listado_blog = Blog.objects.all()
+    
+     
+    form = BusquedaBlog()
+    return render(request, "busqueda_blog.html", {"listado_blog": listado_blog,"form":form})

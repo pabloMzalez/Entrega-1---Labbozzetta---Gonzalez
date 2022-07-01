@@ -25,7 +25,23 @@
         </section>
 {% endblock seccion_inicio %}
 
-{# aca iria el formulario de carga y busqueda #}
+{% block boton_de_busqueda %}
+
+<section id="blog">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <p>
+                    <a href={% url 'listado_blog' %}> Busqueda de los Blogs</a>
+                </p>        
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock boton_de_busqueda %}
+
+
 
 {% block formulario %}
 <section id="blog">
