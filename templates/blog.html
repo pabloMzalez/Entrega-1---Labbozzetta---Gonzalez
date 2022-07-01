@@ -18,7 +18,7 @@
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
                         <h2>Encuentros con el mercado</h2>
-                        <p class="lead"> Este es un gran lugar para contar sobre nuestras experiencias</p>
+                        <p class="lead"> Este es un gran lugar para contar sobre tus experiencias</p>
                     </div>
                 </div>
             </div>
@@ -28,10 +28,24 @@
 {# aca iria el formulario de carga y busqueda #}
 
 {% block formulario %}
-
-
-
-
+<section id="blog">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>Comparte tus historas</h2>
+                <p>
+                    <form action={% url 'crear_blog' %} method="POST">
+                        {% csrf_token %}
+                        <table>
+                            {{form}}
+                        </table>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </p>        
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock formulario %}
 
 

@@ -1,7 +1,11 @@
+from datetime import datetime
 from unicodedata import name
 from django.template import loader
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+
+from blog_app_1.forms import FormBlog
+from blog_app_1.models import Blog
 
 # Create your views here.
 
@@ -17,10 +21,28 @@ def sobre_nosotros(request):
 
 def crear_blog(request):
     #acceso al formulario creado con django 
-    
-  
-    
-    return render(request, "blog.html")
+    if request.method == "POST":
+        form = FormBlog(request.POST)
+                        
+        if form.is_valid():
+            data = form.cleaned_data
+                
+            fecha = data.get("fecha_creacion") 
+            if not fecha:
+                fecha = datetime.now()
+            
+            entrada = Blog(titulo = data.get("titulo"), 
+                            contenido = data.get("contenido"),
+                            fecha_creacion = fecha)
+            entrada.save()
+           
+            
+            #return redirect("listado_blog")
+        else:
+            return render(request, "blog.html", {"form": form}) 
+        
+    entrada = FormBlog()
+    return render(request, "blog.html", {"form": entrada})
     
 
     
