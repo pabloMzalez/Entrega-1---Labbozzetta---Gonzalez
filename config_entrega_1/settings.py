@@ -55,7 +55,7 @@ ROOT_URLCONF = 'config_entrega_1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r"C:\Users\Pablo\Desktop\Entrega1 Labbozzetta Gonzalez\templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
