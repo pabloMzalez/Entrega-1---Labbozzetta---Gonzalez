@@ -34,6 +34,9 @@
         <div class="row gx-4 justify-content-center">
             <div class="col-lg-8">
                 <p>
+                    <a href={% url 'crear_blog' %}> Crear Blogs</a>
+                </p>
+                <p>
                     <form action= {% url 'listado_blog' %} method="GET">
                         {{form}}
                         <button>Buscar entradas</button>

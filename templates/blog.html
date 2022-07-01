@@ -25,23 +25,6 @@
         </section>
 {% endblock seccion_inicio %}
 
-{% block boton_de_busqueda %}
-
-<section id="blog">
-    <div class="container px-4">
-        <div class="row gx-4 justify-content-center">
-            <div class="col-lg-8">
-                <p>
-                    <a href={% url 'listado_blog' %}> Busqueda de los Blogs</a>
-                </p>        
-            </div>
-        </div>
-    </div>
-</section>
-
-{% endblock boton_de_busqueda %}
-
-
 
 {% block formulario %}
 <section id="blog">
@@ -49,6 +32,9 @@
         <div class="row gx-4 justify-content-center">
             <div class="col-lg-8">
                 <h2>Comparte tus historas</h2>
+                <p>
+                    <a href={% url 'listado_blog' %}> Busqueda de los Blogs</a>
+                </p> 
                 <p>
                     <form action={% url 'crear_blog' %} method="POST">
                         {% csrf_token %}
